@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="card" style="width:400px" *ngFor="let question of questions">
+  <div class="card-body">
+    <p class="card-title">Catogery:{{question.category}}</p>
+    <p class="card-text">Type:{{question.type}}</p>
+    <p class="card-text">Difficulty{{question.difficulty}}</p>
+    <b class="card-text">Q:{{question.question}}</b>
+  </div>
+  <div class="form-group">
+    <label for="sel1">Select Answer:</label>
+    <select class="form-control" id="sel1" (change)="selectedOption($event,question.question)">
+      <option *ngFor="let option of question.options">{{option}}</option>
+    </select>
+  </div>
+</div>
+
+<button btn btn-primary (click)="showScore()">Submit</button>
+
+<router-outlet></router-outlet>
